@@ -1,79 +1,96 @@
-### 🔹 Project Title
-
-```
 # 🎥 VidSage – Smart Video Transcoder & Analyzer
-```
 
-### 🔹 Description
+**VidSage** is a Python-powered tool that automates video transcoding, stream metadata extraction, and visual quality analysis. It simulates essential components of large-scale video streaming systems used in OTT, broadcast, and video delivery infrastructure.
 
-```markdown
-VidSage is a Python-powered tool that automates video transcoding, stream metadata extraction, and visual quality analysis. Built with FFmpeg and OpenCV, it simulates key components of real-world video streaming pipelines like those used in OTT, broadcast, and video QA systems.
+Built with **FFmpeg** and **OpenCV**, VidSage helps engineers understand how resolution, encoding, and visual clarity interact — making it a useful pre-processing and QA tool in a modern video pipeline.
 
-It helps you:
-- Transcode videos to multiple resolutions
-- Analyze blurriness using Laplacian variance
-- Extract codec, bitrate, and resolution info
-- Generate visual reports with plots and markdown
-```
+---
 
-### 🔹 Demo Screenshot
+## 🚀 Key Features
 
-```markdown
+- ✅ **Multi-resolution transcoding** (480p, 720p, 1080p) using FFmpeg
+- ✅ **Stream metadata extraction** (codec, bitrate, resolution) via ffprobe
+- ✅ **Visual blur detection** using Laplacian variance across sampled frames
+- ✅ **Markdown report generation** with inline performance plots
+- ✅ 📈 Reusable for both real-time diagnostics and offline video QA tasks
+
+---
+
+## 📸 Demo
+
 ![Blur Plot](output/blur_plot.png)
-```
 
-### 🔹 Features
+---
 
-```markdown
-- ✅ FFmpeg-powered multi-resolution transcoding (480p, 720p, 1080p)
-- ✅ Real-time video quality scoring via blur detection
-- ✅ Stream metadata extraction using ffprobe
-- ✅ Report generation (Markdown + plot)
-```
+## 🛠 Tech Stack
 
-### 🔹 Tech Stack
+- **Python 3**
+- **FFmpeg** + **ffprobe** (for transcoding and metadata)
+- **OpenCV** (for frame sampling and blur detection)
+- **Matplotlib**, **Pandas** (for plotting and analysis)
 
-```markdown
-- Python
-- FFmpeg & ffprobe
-- OpenCV
-- Matplotlib
-- Pandas
-```
+---
 
-### 🔹 Folder Structure
-
-```markdown
-vidsage/
-├── input/             # Raw videos
-├── output/            # Transcoded videos + report
-├── transcoder.py      # FFmpeg transcoding
-├── quality_metrics.py # Blur detection
-├── utils.py           # Metadata extraction
-├── analyzer.py        # Main script
-└── requirements.txt
-```
-
-### 🔹 Setup & Usage
+## 🧱 Project Structure
 
 ```bash
-# Clone this repo
+vidsage/
+├── input/             # Place original videos here
+├── output/            # Output transcoded videos, plots, and reports
+├── transcoder.py      # Handles FFmpeg transcoding
+├── quality_metrics.py # Visual blurriness detection using OpenCV
+├── utils.py           # Video metadata extractor (ffprobe)
+├── analyzer.py        # Main orchestrator script
+└── requirements.txt   # Python dependencies
+````
+
+---
+
+## ⚙️ Setup & Usage
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/yourusername/vidsage.git
 cd vidsage
+```
 
-# Install dependencies
+### 2. Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-# Add your test video
-mv somevideo.mp4 input/sample.mp4
+### 3. Add Your Input Video
 
-# Run analysis
+Place your sample video inside the `input/` folder. Name it `sample.mp4` or adjust the path in `analyzer.py`.
+
+### 4. Run the Analyzer
+
+```bash
 python analyzer.py
 ```
 
-### 🔹 Output
+---
 
-* `output/report.md`: Textual summary
-* `output/blur_plot.png`: Visual analysis
-* Transcoded videos: `*_480p.mp4`, `*_720p.mp4`, etc.
+## 📂 Output
+
+Once complete, the tool generates:
+
+| File                           | Description                                                           |
+| ------------------------------ | --------------------------------------------------------------------- |
+| `output/report.md`             | Markdown summary with codec info, bitrate, resolution, and blur score |
+| `output/blur_plot.png`         | Frame-by-frame blur score visualization                               |
+| `output/sample_720p.mp4`, etc. | Transcoded videos at various resolutions                              |
+
+---
+
+## 🎯 Use Case
+
+> Due to growing demand for adaptive bitrate streaming and high-quality playback across devices, media systems must transcode, monitor, and analyze video files at scale. VidSage addresses this by automating key QA steps — saving manual analysis time, ensuring consistent delivery, and enabling intelligent debugging of video degradation across resolutions.
+
+---
+
+
+
 
